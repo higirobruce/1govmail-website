@@ -19,7 +19,7 @@ export const releases: Release[] = [
     label: "macOS",
     sublabel: "Apple Silicon (M1 – M4)",
     ext: ".dmg",
-    url: "/downloads/1GovMail-1.0.0-arm64.dmg",
+    url: "https://drive.google.com/file/d/1EXk9alHRleV8bRDsGa3CrWwmdGgN5YlE/view?usp=sharing",
     size: "~120 MB",
   },
   {
@@ -35,7 +35,7 @@ export const releases: Release[] = [
     label: "Windows",
     sublabel: "Windows 10 / 11 (x64)",
     ext: ".exe",
-    url: "/downloads/1GovMail-Setup-1.0.0.exe",
+    url: "https://drive.google.com/file/d/1ZjWHV2oDCVQ-44CD-Gc5TycVo59qYu1G/view?usp=drive_link",
     size: "~130 MB",
   },
   {
