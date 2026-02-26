@@ -20,15 +20,15 @@ export const releases: Release[] = [
     sublabel: "Apple Silicon (M1 – M4)",
     ext: ".dmg",
     url: "https://drive.google.com/file/d/1EXk9alHRleV8bRDsGa3CrWwmdGgN5YlE/view?usp=sharing",
-    size: "~120 MB",
+    size: "~400 MB",
   },
   {
     platform: "mac-intel",
     label: "macOS",
     sublabel: "Intel (x64)",
     ext: ".dmg",
-    url: "/downloads/1GovMail-1.0.0-x64.dmg",
-    size: "~125 MB",
+    url: "https://drive.google.com/file/d/1qzIzmo6qVLt4eTxNQ-0qLDT3WguBGzLb/view?usp=sharing",
+    size: "~400 MB",
   },
   {
     platform: "windows",
@@ -36,15 +36,15 @@ export const releases: Release[] = [
     sublabel: "Windows 10 / 11 (x64)",
     ext: ".exe",
     url: "https://drive.google.com/file/d/1ZjWHV2oDCVQ-44CD-Gc5TycVo59qYu1G/view?usp=drive_link",
-    size: "~130 MB",
+    size: "~250 MB",
   },
   {
     platform: "linux",
     label: "Linux",
     sublabel: "AppImage (x64)",
     ext: ".AppImage",
-    url: "/downloads/1GovMail-1.0.0.AppImage",
-    size: "~135 MB",
+    url: "https://drive.google.com/file/d/1hn2LR6zNjSD-wkOMiH-XHKi1sqI-L5kk/view?usp=sharing",
+    size: "~400 MB",
   },
 ];
 
