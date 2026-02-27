@@ -11,30 +11,30 @@ export function Hero() {
         className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[600px] rounded-full pointer-events-none"
         style={{
           background:
-            "radial-gradient(ellipse, rgba(255,255,255,0.04) 0%, transparent 70%)",
+            "radial-gradient(ellipse, rgba(0,0,0,0.04) 0%, transparent 70%)",
         }}
       />
 
       {/* Badge */}
-      <div className="relative z-10 mb-6 flex items-center gap-2 border border-white/[0.10] rounded-full px-4 py-1.5 text-sm text-white/60 bg-white/[0.04]">
-        <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse inline-block" />
+      <div className="relative z-10 mb-6 flex items-center gap-2 border border-black/[0.10] rounded-full px-4 py-1.5 text-sm text-black/60 bg-black/[0.04]">
+        <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse inline-block" />
         Version {CURRENT_VERSION} is now available
         <Link
           href="/changelog"
-          className="ml-1 text-white/90 hover:text-white underline underline-offset-2 text-xs"
+          className="ml-1 text-black/80 hover:text-black underline underline-offset-2 text-xs"
         >
           See what&apos;s new →
         </Link>
       </div>
 
       {/* Headline */}
-      <h1 className="relative z-10 text-center text-5xl md:text-6xl lg:text-7xl font-semibold tracking-tight leading-[1.08] max-w-3xl px-6">
+      <h1 className="relative z-10 text-center text-5xl md:text-6xl lg:text-7xl font-semibold tracking-tight leading-[1.08] max-w-3xl px-6 text-[#0a0a0a]">
         Government email,{" "}
-        <span className="text-white/40">reimagined.</span>
+        <span className="text-black/35">reimagined.</span>
       </h1>
 
       {/* Subline */}
-      <p className="relative z-10 mt-6 text-center text-lg text-white/50 max-w-xl px-6 leading-relaxed">
+      <p className="relative z-10 mt-6 text-center text-lg text-black/50 max-w-xl px-6 leading-relaxed">
         A fast, native desktop client for Zimbra. Clean interface, integrated
         calendar, and everything your team needs — in one app.
       </p>
@@ -43,21 +43,21 @@ export function Hero() {
       <div className="relative z-10 mt-8 flex flex-col sm:flex-row items-center gap-3">
         <Link
           href="/download"
-          className="flex items-center gap-2 bg-white text-[#0a0a0a] font-medium px-6 py-3 rounded-full hover:bg-white/90 transition-all text-sm shadow-lg shadow-white/10"
+          className="flex items-center gap-2 bg-[#0a0a0a] text-white font-medium px-6 py-3 rounded-full hover:bg-[#222] transition-all text-sm shadow-lg shadow-black/10"
         >
           <DownloadIcon />
           Download Free
         </Link>
         <a
           href="#features"
-          className="text-sm text-white/50 hover:text-white/80 transition-colors px-4 py-3"
+          className="text-sm text-black/50 hover:text-black/80 transition-colors px-4 py-3"
         >
           See features →
         </a>
       </div>
 
       {/* Platform pills */}
-      <div className="relative z-10 mt-4 flex items-center gap-2 text-xs text-white/30">
+      <div className="relative z-10 mt-4 flex items-center gap-2 text-xs text-black/40">
         <AppleIcon />
         macOS
         <span className="mx-1">·</span>
@@ -88,7 +88,7 @@ export function Hero() {
         className="absolute bottom-0 left-0 right-0 h-48 pointer-events-none"
         style={{
           background:
-            "linear-gradient(to bottom, transparent, #0a0a0a)",
+            "linear-gradient(to bottom, transparent, #ffffff)",
         }}
       />
     </section>

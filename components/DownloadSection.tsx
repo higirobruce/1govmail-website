@@ -41,43 +41,33 @@ export function DownloadSection() {
   return (
     <section
       id="download"
-      className="relative bg-[#0a0a0a] py-28 px-6 overflow-hidden"
+      className="relative bg-[#f5f5f5] py-28 px-6 overflow-hidden"
     >
-      {/* Background glow */}
-      <div
-        aria-hidden
-        className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[400px] pointer-events-none"
-        style={{
-          background:
-            "radial-gradient(ellipse, rgba(255,255,255,0.05) 0%, transparent 70%)",
-        }}
-      />
-
       <div className="relative max-w-2xl mx-auto text-center">
-        <p className="text-xs font-semibold tracking-widest uppercase text-white/30 mb-3">
+        <p className="text-xs font-semibold tracking-widest uppercase text-black/30 mb-3">
           Download
         </p>
-        <h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-white mb-4">
+        <h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-[#0a0a0a] mb-4">
           Available for all platforms
         </h2>
-        <p className="text-white/50 mb-10 text-base leading-relaxed">
+        <p className="text-black/50 mb-10 text-base leading-relaxed">
           Free for all government institutions. Version {CURRENT_VERSION} · Released {RELEASE_DATE}.
         </p>
 
         {/* Primary CTA — auto-detected platform */}
         <a
           href={primary.url}
-          className="inline-flex items-center gap-3 bg-white text-[#0a0a0a] font-semibold px-8 py-4 rounded-2xl hover:bg-white/90 transition-all text-base shadow-lg shadow-white/10 mb-3"
+          className="inline-flex items-center gap-3 bg-[#0a0a0a] text-white font-semibold px-8 py-4 rounded-2xl hover:bg-[#222] transition-all text-base shadow-lg shadow-black/10 mb-3"
         >
           {platformIcons[primary.platform]}
           Download for {primary.label}
-          <span className="text-[#0a0a0a]/40 text-sm font-normal">
+          <span className="text-white/50 text-sm font-normal">
             {primary.sublabel}
           </span>
           <DownloadArrow />
         </a>
 
-        <p className="text-xs text-white/30 mb-10">{primary.ext} · {primary.size}</p>
+        <p className="text-xs text-black/30 mb-10">{primary.ext} · {primary.size}</p>
 
         {/* Other platforms */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
@@ -85,16 +75,16 @@ export function DownloadSection() {
             <a
               key={r.platform}
               href={r.url}
-              className="group flex flex-col items-center gap-2 border border-white/[0.08] rounded-xl p-5 hover:border-white/20 hover:bg-white/[0.04] transition-all"
+              className="group flex flex-col items-center gap-2 border border-black/[0.08] rounded-xl p-5 hover:border-black/20 hover:bg-black/[0.04] transition-all"
             >
-              <span className="text-white/40 group-hover:text-white/70 transition-colors">
+              <span className="text-black/40 group-hover:text-black/70 transition-colors">
                 {platformIcons[r.platform]}
               </span>
-              <span className="text-sm font-medium text-white/70 group-hover:text-white transition-colors">
+              <span className="text-sm font-medium text-black/60 group-hover:text-black transition-colors">
                 {r.label}
               </span>
-              <span className="text-xs text-white/30">{r.sublabel}</span>
-              <span className="text-[11px] text-white/20 mt-1">
+              <span className="text-xs text-black/40">{r.sublabel}</span>
+              <span className="text-[11px] text-black/30 mt-1">
                 {r.ext} · {r.size}
               </span>
             </a>
@@ -102,7 +92,7 @@ export function DownloadSection() {
         </div>
 
         {/* Footer note */}
-        <p className="mt-8 text-xs text-white/25 leading-relaxed">
+        <p className="mt-8 text-xs text-black/30 leading-relaxed">
           Distributed internally by the Rwanda Information Society Authority (RISA).
           <br />
           By downloading, you agree to use this software in accordance with your

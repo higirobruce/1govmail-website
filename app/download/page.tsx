@@ -45,28 +45,28 @@ export default function DownloadPage() {
   return (
     <>
       <Navbar />
-      <main className="min-h-screen bg-[#0a0a0a] pt-14">
+      <main className="min-h-screen bg-white pt-14">
         <div className="max-w-4xl mx-auto px-6 py-24">
 
           {/* Header */}
           <div className="text-center mb-16">
-            <p className="text-xs font-semibold tracking-widest uppercase text-white/30 mb-3">
+            <p className="text-xs font-semibold tracking-widest uppercase text-black/30 mb-3">
               Download
             </p>
-            <h1 className="text-4xl md:text-5xl font-semibold tracking-tight text-white mb-4">
+            <h1 className="text-4xl md:text-5xl font-semibold tracking-tight text-[#0a0a0a] mb-4">
               1Gov Mail
             </h1>
-            <p className="text-white/50 text-base">
+            <p className="text-black/50 text-base">
               Version {CURRENT_VERSION} · Released {RELEASE_DATE}
             </p>
           </div>
 
           {/* Auto-detected notice */}
           {autoDetected && (
-            <div className="flex items-center gap-2 justify-center mb-10 text-sm text-white/40">
-              <span className="w-1.5 h-1.5 rounded-full bg-green-400 inline-block" />
+            <div className="flex items-center gap-2 justify-center mb-10 text-sm text-black/40">
+              <span className="w-1.5 h-1.5 rounded-full bg-green-500 inline-block" />
               We detected your platform:{" "}
-              <span className="text-white/70 font-medium">
+              <span className="text-black/70 font-medium">
                 {selectedRelease.label} — {selectedRelease.sublabel}
               </span>
             </div>
@@ -81,14 +81,14 @@ export default function DownloadPage() {
                 className={clsx(
                   "group flex flex-col items-center gap-2 p-5 rounded-xl border transition-all text-left",
                   selected === r.platform
-                    ? "border-white/30 bg-white/[0.08]"
-                    : "border-white/[0.07] hover:border-white/20 hover:bg-white/[0.04]"
+                    ? "border-black/30 bg-black/[0.06]"
+                    : "border-black/[0.07] hover:border-black/20 hover:bg-black/[0.03]"
                 )}
               >
                 <span
                   className={clsx(
                     "transition-colors",
-                    selected === r.platform ? "text-white" : "text-white/40 group-hover:text-white/60"
+                    selected === r.platform ? "text-[#0a0a0a]" : "text-black/40 group-hover:text-black/60"
                   )}
                 >
                   {platformIcons[r.platform]}
@@ -96,16 +96,16 @@ export default function DownloadPage() {
                 <span
                   className={clsx(
                     "text-sm font-medium transition-colors",
-                    selected === r.platform ? "text-white" : "text-white/60"
+                    selected === r.platform ? "text-[#0a0a0a]" : "text-black/60"
                   )}
                 >
                   {r.label}
                 </span>
-                <span className="text-[11px] text-white/30 text-center leading-tight">
+                <span className="text-[11px] text-black/40 text-center leading-tight">
                   {r.sublabel}
                 </span>
                 {r.platform === detectedPlatform && (
-                  <span className="text-[10px] text-green-400/80 font-medium">
+                  <span className="text-[10px] text-green-600 font-medium">
                     Recommended
                   </span>
                 )}
@@ -114,19 +114,19 @@ export default function DownloadPage() {
           </div>
 
           {/* Download card */}
-          <div className="border border-white/[0.10] rounded-2xl p-8 bg-white/[0.03] mb-8">
+          <div className="border border-black/[0.08] rounded-2xl p-8 bg-black/[0.02] mb-8">
             <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
               <div>
-                <h2 className="text-lg font-semibold text-white mb-1">
+                <h2 className="text-lg font-semibold text-[#0a0a0a] mb-1">
                   1Gov Mail {CURRENT_VERSION} for {selectedRelease.label}
                 </h2>
-                <p className="text-sm text-white/50">
+                <p className="text-sm text-black/50">
                   {selectedRelease.sublabel} · {selectedRelease.ext} installer · {selectedRelease.size}
                 </p>
               </div>
               <a
                 href={selectedRelease.url}
-                className="flex-shrink-0 flex items-center gap-2.5 bg-white text-[#0a0a0a] font-semibold px-6 py-3 rounded-xl hover:bg-white/90 transition-all text-sm shadow-lg shadow-white/10"
+                className="flex-shrink-0 flex items-center gap-2.5 bg-[#0a0a0a] text-white font-semibold px-6 py-3 rounded-xl hover:bg-[#222] transition-all text-sm shadow-lg shadow-black/10"
               >
                 <DownloadIcon />
                 Download {selectedRelease.ext}
@@ -134,14 +134,14 @@ export default function DownloadPage() {
             </div>
 
             {/* System requirements */}
-            <div className="mt-8 pt-6 border-t border-white/[0.06]">
-              <p className="text-xs font-semibold uppercase tracking-widest text-white/30 mb-3">
+            <div className="mt-8 pt-6 border-t border-black/[0.06]">
+              <p className="text-xs font-semibold uppercase tracking-widest text-black/30 mb-3">
                 System Requirements
               </p>
               <ul className="flex flex-col gap-2">
                 {requirements[selected].map((req) => (
-                  <li key={req} className="flex items-center gap-2 text-sm text-white/50">
-                    <span className="w-1 h-1 rounded-full bg-white/30 flex-shrink-0" />
+                  <li key={req} className="flex items-center gap-2 text-sm text-black/50">
+                    <span className="w-1 h-1 rounded-full bg-black/30 flex-shrink-0" />
                     {req}
                   </li>
                 ))}
@@ -154,7 +154,7 @@ export default function DownloadPage() {
 
           {/* Footer link */}
           <div className="mt-12 text-center">
-            <Link href="/changelog" className="text-sm text-white/40 hover:text-white/70 transition-colors">
+            <Link href="/changelog" className="text-sm text-black/40 hover:text-black/70 transition-colors">
               View release notes for v{CURRENT_VERSION} →
             </Link>
           </div>
@@ -199,11 +199,11 @@ function InstallNote({ platform }: { platform: Platform }) {
   };
 
   return (
-    <div className="border border-white/[0.07] rounded-xl p-6 bg-white/[0.02]">
-      <p className="text-xs font-semibold uppercase tracking-widest text-white/25 mb-3">
+    <div className="border border-black/[0.07] rounded-xl p-6 bg-black/[0.02]">
+      <p className="text-xs font-semibold uppercase tracking-widest text-black/30 mb-3">
         Installation
       </p>
-      <div className="text-sm text-white/45 leading-relaxed [&_code]:bg-white/[0.08] [&_code]:px-1.5 [&_code]:py-0.5 [&_code]:rounded [&_code]:text-white/70 [&_code]:font-mono [&_code]:text-xs [&_strong]:text-white/70 [&_strong]:font-medium">
+      <div className="text-sm text-black/50 leading-relaxed [&_code]:bg-black/[0.06] [&_code]:px-1.5 [&_code]:py-0.5 [&_code]:rounded [&_code]:text-black/70 [&_code]:font-mono [&_code]:text-xs [&_strong]:text-black/70 [&_strong]:font-medium">
         {notes[platform]}
       </div>
     </div>

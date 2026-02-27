@@ -6,7 +6,7 @@ const releases = [
     version: "1.0.0",
     date: "February 2026",
     badge: "Initial Release",
-    badgeColor: "bg-green-500/15 text-green-400 border-green-500/20",
+    badgeColor: "bg-green-500/15 text-green-700 border-green-500/20",
     changes: [
       {
         type: "new",
@@ -41,28 +41,28 @@ const releases = [
 ];
 
 const typeColors: Record<string, string> = {
-  new: "bg-blue-500/10 text-blue-400 border-blue-500/15",
-  fix: "bg-orange-500/10 text-orange-400 border-orange-500/15",
-  improvement: "bg-purple-500/10 text-purple-400 border-purple-500/15",
-  platform: "bg-white/[0.07] text-white/50 border-white/[0.08]",
+  new: "bg-blue-500/10 text-blue-600 border-blue-500/20",
+  fix: "bg-orange-500/10 text-orange-600 border-orange-500/20",
+  improvement: "bg-purple-500/10 text-purple-600 border-purple-500/20",
+  platform: "bg-black/[0.06] text-black/50 border-black/[0.08]",
 };
 
 export default function ChangelogPage() {
   return (
     <>
       <Navbar />
-      <main className="min-h-screen bg-[#0a0a0a] pt-14">
+      <main className="min-h-screen bg-white pt-14">
         <div className="max-w-2xl mx-auto px-6 py-24">
 
           {/* Header */}
           <div className="mb-16">
-            <p className="text-xs font-semibold tracking-widest uppercase text-white/30 mb-3">
+            <p className="text-xs font-semibold tracking-widest uppercase text-black/30 mb-3">
               Changelog
             </p>
-            <h1 className="text-4xl font-semibold tracking-tight text-white mb-3">
+            <h1 className="text-4xl font-semibold tracking-tight text-[#0a0a0a] mb-3">
               Release notes
             </h1>
-            <p className="text-white/50 text-base">
+            <p className="text-black/50 text-base">
               All notable changes to 1Gov Mail are documented here.
             </p>
           </div>
@@ -70,19 +70,19 @@ export default function ChangelogPage() {
           {/* Timeline */}
           <div className="relative">
             {/* Vertical line */}
-            <div className="absolute left-3 top-2 bottom-0 w-px bg-white/[0.06]" />
+            <div className="absolute left-3 top-2 bottom-0 w-px bg-black/[0.06]" />
 
             <div className="flex flex-col gap-16">
               {releases.map((rel) => (
                 <div key={rel.version} className="relative pl-10">
                   {/* Dot */}
-                  <div className="absolute left-0 top-1.5 w-6 h-6 rounded-full border border-white/[0.12] bg-[#0a0a0a] flex items-center justify-center">
-                    <div className="w-2 h-2 rounded-full bg-white/40" />
+                  <div className="absolute left-0 top-1.5 w-6 h-6 rounded-full border border-black/[0.10] bg-white flex items-center justify-center">
+                    <div className="w-2 h-2 rounded-full bg-black/30" />
                   </div>
 
                   {/* Version header */}
                   <div className="flex items-center gap-3 mb-6">
-                    <h2 className="text-xl font-semibold text-white">
+                    <h2 className="text-xl font-semibold text-[#0a0a0a]">
                       v{rel.version}
                     </h2>
                     <span
@@ -90,7 +90,7 @@ export default function ChangelogPage() {
                     >
                       {rel.badge}
                     </span>
-                    <span className="text-sm text-white/30 ml-auto">
+                    <span className="text-sm text-black/30 ml-auto">
                       {rel.date}
                     </span>
                   </div>
@@ -108,9 +108,9 @@ export default function ChangelogPage() {
                           {group.items.map((item) => (
                             <li
                               key={item}
-                              className="flex items-start gap-2.5 text-sm text-white/60"
+                              className="flex items-start gap-2.5 text-sm text-black/60"
                             >
-                              <span className="w-1 h-1 rounded-full bg-white/25 flex-shrink-0 mt-[7px]" />
+                              <span className="w-1 h-1 rounded-full bg-black/25 flex-shrink-0 mt-[7px]" />
                               {item}
                             </li>
                           ))}
