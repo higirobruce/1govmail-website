@@ -19,7 +19,7 @@ export const releases: Release[] = [
     label: "macOS",
     sublabel: "Apple Silicon (M1 – M4)",
     ext: ".dmg",
-    url: "https://drive.google.com/file/d/1EXk9alHRleV8bRDsGa3CrWwmdGgN5YlE/view?usp=sharing",
+    url: "https://drive.google.com/file/d/1zSXOOPMhLNJLWa8Eo74WVAQX1lZ7DQ25/view?usp=sharing",
     size: "~400 MB",
   },
   {
@@ -27,7 +27,7 @@ export const releases: Release[] = [
     label: "macOS",
     sublabel: "Intel (x64)",
     ext: ".dmg",
-    url: "https://drive.google.com/file/d/1qzIzmo6qVLt4eTxNQ-0qLDT3WguBGzLb/view?usp=sharing",
+    url: "https://drive.google.com/file/d/18DIiTtMlnMPmDMqXOXIWFguY2JCBFllx/view?usp=sharing",
     size: "~400 MB",
   },
   {
@@ -35,7 +35,7 @@ export const releases: Release[] = [
     label: "Windows",
     sublabel: "Windows 10 / 11 (x64)",
     ext: ".exe",
-    url: "https://drive.google.com/file/d/1ZjWHV2oDCVQ-44CD-Gc5TycVo59qYu1G/view?usp=drive_link",
+    url: "https://drive.google.com/file/d/1ZjlthG-6lNzgmumkH1y6xpuJLPKHVwAr/view?usp=sharing",
     size: "~250 MB",
   },
   {
@@ -43,7 +43,7 @@ export const releases: Release[] = [
     label: "Linux",
     sublabel: "AppImage (x64)",
     ext: ".AppImage",
-    url: "https://drive.google.com/file/d/1hn2LR6zNjSD-wkOMiH-XHKi1sqI-L5kk/view?usp=sharing",
+    url: "https://drive.google.com/file/d/1YgC-GIc79iBzvxPCsLpo8VZkwYQFVAhn/view?usp=sharing",
     size: "~400 MB",
   },
 ];
