@@ -21,6 +21,29 @@ interface ReleaseEntry {
 
 const STATIC_RELEASES: ReleaseEntry[] = [
   {
+    version: "1.2.0",
+    date: "February 2026",
+    changes: [
+      {
+        type: "new",
+        label: "New",
+        items: [
+          "Recurring tasks — set a task to repeat daily, weekly, monthly, or yearly; the next occurrence is created automatically when you mark it done",
+          "Task reminders — receive an email notification 15 minutes, 30 minutes, 1 hour, or 1 day before a task is due",
+          "File attachments — attach up to 5 files (5 MB each) to any task, then download or remove them inline",
+          "My Day tab — new view in Tasks showing only tasks due today, with a live count badge on the tab",
+          "Bulk actions — select multiple tasks with checkboxes and use the floating action bar to mark done or delete in one click",
+          "Task sheet — creating and editing tasks now opens in a slide-in side panel for better use of screen space",
+          "Multi-attendee availability panel — overlay up to 5 colleagues' free/busy schedules on a shared timeline",
+          "Batch free/busy lookup — fetches all attendees' schedules in a single request for instant results",
+          "Find-a-time — highlights open slots where all selected attendees are free, with suggested meeting times",
+          "Working hours overlay — shaded bands show each person's configured business hours on the timeline",
+          "Per-user color coding on the availability timeline for quick visual parsing",
+        ],
+      },
+    ],
+  },
+  {
     version: "1.1.0",
     date: "February 2026",
     changes: [
@@ -29,7 +52,12 @@ const STATIC_RELEASES: ReleaseEntry[] = [
         label: "New",
         items: [
           "Task management — create, prioritise, and track tasks directly in the app",
+          "Subtasks with per-task progress counter and inline completion toggle",
+          "Threaded comments on tasks with author avatars and delete",
+          "Kanban board view — drag tasks between To Do, In Progress, Done, and Cancelled columns",
+          "Sort tasks by date and priority; filter by status and overdue",
           "Link tasks to emails by subject for full context",
+          "Create tasks directly from an email thread with the subject pre-filled",
           "Assign tasks to colleagues with an automatic notification email sent via Zimbra",
           "Image support in email signatures — embed inline images that render in all clients",
           "File attachments can now include images with correct inline rendering",
@@ -43,8 +71,7 @@ const STATIC_RELEASES: ReleaseEntry[] = [
           "Email quote stripping — removes embedded reply history from Outlook, Apple Mail, Gmail, and calendar invite formats so each message card shows only new content",
           "Sent messages now persist immediately in the Sent folder without requiring a manual sync",
           "Signature selection and cache invalidation improved — correct signature loads on compose open",
-          "Calendar free/busy search tooltip styling and availability overlay refined",
-          "Availability timeline tooltips now show busy/tentative block details on hover",
+          "Availability timeline tooltips now show busy/tentative block details and attendee name on hover",
         ],
       },
       {

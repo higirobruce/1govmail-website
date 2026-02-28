@@ -20,7 +20,7 @@ const features = [
     ),
     title: "Integrated Calendar",
     description:
-      "Full month, week, and day views. Check colleague availability directly from the compose window.",
+      "Full month, week, and day views. Overlay colleagues' free/busy schedules and find an open slot for everyone with one click.",
   },
   {
     icon: (
@@ -65,9 +65,9 @@ const features = [
         <rect x="11" y="11" width="7" height="7" rx="1.5" />
       </svg>
     ),
-    title: "Tasks & More",
+    title: "Task Management",
     description:
-      "Tasks, Collaboration, and News modules — a unified workspace coming soon in future releases.",
+      "Create tasks from emails, assign to colleagues, set reminders, attach files, and track progress on a kanban board — all without leaving the app.",
   },
 ];
 
