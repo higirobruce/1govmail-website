@@ -104,9 +104,14 @@ export default function DownloadPage() {
                 <span className="text-[11px] text-black/40 text-center leading-tight">
                   {r.sublabel}
                 </span>
-                {r.platform === detectedPlatform && (
+                {r.platform === detectedPlatform && r.available && (
                   <span className="text-[10px] text-green-600 font-medium">
                     Recommended
+                  </span>
+                )}
+                {!r.available && (
+                  <span className="text-[10px] text-black/30 font-medium">
+                    Coming soon
                   </span>
                 )}
               </button>
@@ -124,13 +129,19 @@ export default function DownloadPage() {
                   {selectedRelease.sublabel} · {selectedRelease.ext} installer · {selectedRelease.size}
                 </p>
               </div>
-              <a
-                href={selectedRelease.url}
-                className="flex-shrink-0 flex items-center gap-2.5 bg-[#0a0a0a] text-white font-semibold px-6 py-3 rounded-xl hover:bg-[#222] transition-all text-sm shadow-lg shadow-black/10"
-              >
-                <DownloadIcon />
-                Download {selectedRelease.ext}
-              </a>
+              {selectedRelease.available ? (
+                <a
+                  href={selectedRelease.url}
+                  className="flex-shrink-0 flex items-center gap-2.5 bg-[#0a0a0a] text-white font-semibold px-6 py-3 rounded-xl hover:bg-[#222] transition-all text-sm shadow-lg shadow-black/10"
+                >
+                  <DownloadIcon />
+                  Download {selectedRelease.ext}
+                </a>
+              ) : (
+                <div className="flex-shrink-0 flex items-center gap-2.5 bg-black/[0.06] text-black/30 font-semibold px-6 py-3 rounded-xl text-sm cursor-not-allowed">
+                  Coming soon
+                </div>
+              )}
             </div>
 
             {/* System requirements */}

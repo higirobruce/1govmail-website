@@ -8,9 +8,9 @@ export interface Release {
   label: string;
   sublabel: string;
   ext: string;
-  /** Replace with real URL once binaries are hosted */
-  url: string;
+  url?: string;
   size: string;
+  available: boolean;
 }
 
 export const releases: Release[] = [
@@ -21,6 +21,7 @@ export const releases: Release[] = [
     ext: ".dmg",
     url: "https://drive.google.com/file/d/1zSXOOPMhLNJLWa8Eo74WVAQX1lZ7DQ25/view?usp=sharing",
     size: "~400 MB",
+    available: true,
   },
   {
     platform: "mac-intel",
@@ -29,22 +30,23 @@ export const releases: Release[] = [
     ext: ".dmg",
     url: "https://drive.google.com/file/d/18DIiTtMlnMPmDMqXOXIWFguY2JCBFllx/view?usp=sharing",
     size: "~400 MB",
+    available: true,
   },
   {
     platform: "windows",
     label: "Windows",
     sublabel: "Windows 10 / 11 (x64)",
     ext: ".exe",
-    url: "https://drive.google.com/file/d/1ZjlthG-6lNzgmumkH1y6xpuJLPKHVwAr/view?usp=sharing",
     size: "~250 MB",
+    available: false,
   },
   {
     platform: "linux",
     label: "Linux",
     sublabel: "AppImage (x64)",
     ext: ".AppImage",
-    url: "https://drive.google.com/file/d/1YgC-GIc79iBzvxPCsLpo8VZkwYQFVAhn/view?usp=sharing",
     size: "~400 MB",
+    available: false,
   },
 ];
 

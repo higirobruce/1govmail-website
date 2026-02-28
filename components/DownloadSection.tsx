@@ -35,8 +35,11 @@ export function DownloadSection() {
     setDetectedPlatform(detectPlatform(navigator.userAgent));
   }, []);
 
-  const primary = releases.find((r) => r.platform === detectedPlatform) ?? releases[0];
-  const others = releases.filter((r) => r.platform !== detectedPlatform);
+  const primary =
+    releases.find((r) => r.platform === detectedPlatform && r.available) ??
+    releases.find((r) => r.available) ??
+    releases[0];
+  const others = releases.filter((r) => r.platform !== primary.platform);
 
   return (
     <section
@@ -71,24 +74,36 @@ export function DownloadSection() {
 
         {/* Other platforms */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-          {others.map((r) => (
-            <a
-              key={r.platform}
-              href={r.url}
-              className="group flex flex-col items-center gap-2 border border-black/[0.08] rounded-xl p-5 hover:border-black/20 hover:bg-black/[0.04] transition-all"
-            >
-              <span className="text-black/40 group-hover:text-black/70 transition-colors">
-                {platformIcons[r.platform]}
-              </span>
-              <span className="text-sm font-medium text-black/60 group-hover:text-black transition-colors">
-                {r.label}
-              </span>
-              <span className="text-xs text-black/40">{r.sublabel}</span>
-              <span className="text-[11px] text-black/30 mt-1">
-                {r.ext} · {r.size}
-              </span>
-            </a>
-          ))}
+          {others.map((r) =>
+            r.available ? (
+              <a
+                key={r.platform}
+                href={r.url}
+                className="group flex flex-col items-center gap-2 border border-black/[0.08] rounded-xl p-5 hover:border-black/20 hover:bg-black/[0.04] transition-all"
+              >
+                <span className="text-black/40 group-hover:text-black/70 transition-colors">
+                  {platformIcons[r.platform]}
+                </span>
+                <span className="text-sm font-medium text-black/60 group-hover:text-black transition-colors">
+                  {r.label}
+                </span>
+                <span className="text-xs text-black/40">{r.sublabel}</span>
+                <span className="text-[11px] text-black/30 mt-1">
+                  {r.ext} · {r.size}
+                </span>
+              </a>
+            ) : (
+              <div
+                key={r.platform}
+                className="flex flex-col items-center gap-2 border border-black/[0.05] rounded-xl p-5 opacity-50 cursor-not-allowed"
+              >
+                <span className="text-black/30">{platformIcons[r.platform]}</span>
+                <span className="text-sm font-medium text-black/40">{r.label}</span>
+                <span className="text-xs text-black/30">{r.sublabel}</span>
+                <span className="text-[11px] text-black/30 mt-1">Coming soon</span>
+              </div>
+            )
+          )}
         </div>
 
         {/* Footer note */}
