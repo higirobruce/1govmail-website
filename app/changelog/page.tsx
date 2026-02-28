@@ -1,7 +1,61 @@
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 
-const releases = [
+// ── Types ─────────────────────────────────────────────────────────────────────
+
+interface ChangeGroup {
+  type: "new" | "fix" | "improvement" | "platform";
+  label: string;
+  items: string[];
+}
+
+interface ReleaseEntry {
+  version: string;
+  date: string;
+  badge?: string;
+  badgeColor?: string;
+  changes: ChangeGroup[];
+}
+
+// ── Static releases (shown below any GitHub API releases) ────────────────────
+
+const STATIC_RELEASES: ReleaseEntry[] = [
+  {
+    version: "1.1.0",
+    date: "February 2026",
+    changes: [
+      {
+        type: "new",
+        label: "New",
+        items: [
+          "Task management — create, prioritise, and track tasks directly in the app",
+          "Link tasks to emails by subject for full context",
+          "Assign tasks to colleagues with an automatic notification email sent via Zimbra",
+          "Image support in email signatures — embed inline images that render in all clients",
+          "File attachments can now include images with correct inline rendering",
+        ],
+      },
+      {
+        type: "improvement",
+        label: "Improvements",
+        items: [
+          "Thread view redesigned with a vertical timeline spine — avatar nodes, collapsed single-line rows, and expanded cards",
+          "Email quote stripping — removes embedded reply history from Outlook, Apple Mail, Gmail, and calendar invite formats so each message card shows only new content",
+          "Sent messages now persist immediately in the Sent folder without requiring a manual sync",
+          "Signature selection and cache invalidation improved — correct signature loads on compose open",
+          "Calendar free/busy search tooltip styling and availability overlay refined",
+          "Availability timeline tooltips now show busy/tentative block details on hover",
+        ],
+      },
+      {
+        type: "fix",
+        label: "Bug Fixes",
+        items: [
+          "Locally deleted drafts no longer reappear after folder refresh",
+        ],
+      },
+    ],
+  },
   {
     version: "1.0.0",
     date: "February 2026",
@@ -40,14 +94,131 @@ const releases = [
   },
 ];
 
-const typeColors: Record<string, string> = {
-  new: "bg-blue-500/10 text-blue-600 border-blue-500/20",
-  fix: "bg-orange-500/10 text-orange-600 border-orange-500/20",
-  improvement: "bg-purple-500/10 text-purple-600 border-purple-500/20",
-  platform: "bg-black/[0.06] text-black/50 border-black/[0.08]",
+// ── GitHub release parser ─────────────────────────────────────────────────────
+
+/**
+ * Maps conventional-changelog section headings to display types.
+ * Angular preset uses these exact heading names.
+ */
+const SECTION_MAP: Record<string, { type: ChangeGroup["type"]; label: string }> = {
+  "Features":               { type: "new",         label: "New" },
+  "Bug Fixes":              { type: "fix",          label: "Bug Fixes" },
+  "Performance Improvements": { type: "improvement", label: "Improvements" },
+  "Reverts":                { type: "fix",          label: "Reverts" },
 };
 
-export default function ChangelogPage() {
+/**
+ * Parse a conventional-changelog markdown body (from GitHub Releases) into
+ * typed ChangeGroup arrays.
+ *
+ * Handles lines like:
+ *   * **tasks:** add task management feature
+ *   * fix download links
+ *   * ([abc1234](url)) ...
+ */
+function parseReleaseBody(body: string): ChangeGroup[] {
+  const groups: ChangeGroup[] = [];
+
+  // Split into sections by "### Heading"
+  const sections = body.split(/^### /m).filter(Boolean);
+
+  for (const section of sections) {
+    const lines = section.trim().split("\n");
+    const heading = lines[0].trim();
+    const meta = SECTION_MAP[heading];
+    if (!meta) continue;
+
+    const items: string[] = [];
+    for (const line of lines.slice(1)) {
+      // Match bullet lines: "* text" or "- text"
+      const match = line.match(/^[*-]\s+(.+)/);
+      if (!match) continue;
+
+      let text = match[1];
+      // Remove scope: "**tasks:** some text" → "some text"
+      text = text.replace(/^\*\*[^*]+\*\*:\s*/, "");
+      // Remove markdown links: "[text](url)" → "text"
+      text = text.replace(/\[([^\]]+)\]\([^)]+\)/g, "$1");
+      // Remove commit hash refs: "([abc1234]...)" at end
+      text = text.replace(/\s*\(\[[a-f0-9]+\][^)]*\)\s*$/, "");
+      text = text.trim();
+      if (text) items.push(text);
+    }
+
+    if (items.length > 0) {
+      groups.push({ type: meta.type, label: meta.label, items });
+    }
+  }
+
+  return groups;
+}
+
+/**
+ * Fetch GitHub Releases for the 1govmail-mono-repo and convert them to
+ * ReleaseEntry objects. Revalidates every hour (ISR) so new releases appear
+ * automatically without a full redeploy.
+ */
+async function getGitHubReleases(): Promise<ReleaseEntry[]> {
+  try {
+    const res = await fetch(
+      "https://api.github.com/repos/higirobruce/1govmail-mono-repo/releases",
+      {
+        headers: {
+          Accept: "application/vnd.github+json",
+          "X-GitHub-Api-Version": "2022-11-28",
+          ...(process.env.GITHUB_TOKEN
+            ? { Authorization: `Bearer ${process.env.GITHUB_TOKEN}` }
+            : {}),
+        },
+        next: { revalidate: 3600 },
+      }
+    );
+
+    if (!res.ok) return [];
+
+    const data = await res.json() as Array<{
+      tag_name: string;
+      name: string;
+      body: string;
+      published_at: string;
+      prerelease: boolean;
+      draft: boolean;
+    }>;
+
+    return data
+      .filter((r) => !r.draft && !r.prerelease)
+      .map((r) => {
+        const version = r.tag_name.replace(/^v/, "");
+        const date = new Date(r.published_at).toLocaleDateString("en-US", {
+          month: "long",
+          year: "numeric",
+        });
+        const changes = parseReleaseBody(r.body ?? "");
+        return { version, date, changes };
+      })
+      .filter((r) => r.changes.length > 0);
+  } catch {
+    return [];
+  }
+}
+
+// ── Display ───────────────────────────────────────────────────────────────────
+
+const typeColors: Record<string, string> = {
+  new:         "bg-blue-500/10 text-blue-600 border-blue-500/20",
+  fix:         "bg-orange-500/10 text-orange-600 border-orange-500/20",
+  improvement: "bg-purple-500/10 text-purple-600 border-purple-500/20",
+  platform:    "bg-black/[0.06] text-black/50 border-black/[0.08]",
+};
+
+// ── Page ──────────────────────────────────────────────────────────────────────
+
+export default async function ChangelogPage() {
+  const githubReleases = await getGitHubReleases();
+
+  // GitHub releases (newest first) + static initial release pinned at bottom
+  const releases: ReleaseEntry[] = [...githubReleases, ...STATIC_RELEASES];
+
   return (
     <>
       <Navbar />
@@ -85,11 +256,13 @@ export default function ChangelogPage() {
                     <h2 className="text-xl font-semibold text-[#0a0a0a]">
                       v{rel.version}
                     </h2>
-                    <span
-                      className={`text-xs font-medium px-2 py-0.5 rounded-full border ${rel.badgeColor}`}
-                    >
-                      {rel.badge}
-                    </span>
+                    {rel.badge && (
+                      <span
+                        className={`text-xs font-medium px-2 py-0.5 rounded-full border ${rel.badgeColor}`}
+                      >
+                        {rel.badge}
+                      </span>
+                    )}
                     <span className="text-sm text-black/30 ml-auto">
                       {rel.date}
                     </span>
@@ -98,7 +271,7 @@ export default function ChangelogPage() {
                   {/* Change groups */}
                   <div className="flex flex-col gap-6">
                     {rel.changes.map((group) => (
-                      <div key={group.type}>
+                      <div key={group.type + group.label}>
                         <span
                           className={`inline-block text-[11px] font-semibold uppercase tracking-widest px-2 py-0.5 rounded border mb-3 ${typeColors[group.type] ?? typeColors.platform}`}
                         >

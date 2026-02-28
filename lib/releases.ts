@@ -1,4 +1,4 @@
-export const CURRENT_VERSION = "1.0.0";
+export const CURRENT_VERSION = "1.1.0";
 export const RELEASE_DATE = "February 2026";
 
 export type Platform = "mac-arm" | "mac-intel" | "windows" | "linux";
