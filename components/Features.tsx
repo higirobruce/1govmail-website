@@ -20,7 +20,7 @@ const features = [
     ),
     title: "Integrated Calendar",
     description:
-      "Full month, week, and day views. Overlay colleagues' free/busy schedules and find an open slot for everyone with one click.",
+      "Month, week, day, and agenda views. Overlay up to 5 colleagues' free/busy schedules, see working hours at a glance, and find an open slot for everyone with one click.",
   },
   {
     icon: (
@@ -54,7 +54,18 @@ const features = [
     ),
     title: "Contacts & Labels",
     description:
-      "Your full Zimbra address book, synced and searchable. Organise emails with custom labels.",
+      "Your full Zimbra address book, synced and searchable. Auto-suggest contacts when composing or assigning tasks. Organise emails with custom labels.",
+  },
+  {
+    icon: (
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+        <circle cx="10" cy="10" r="8" />
+        <path d="M10 6v4l3 3" />
+      </svg>
+    ),
+    title: "Guided Onboarding",
+    description:
+      "A built-in interactive tour walks new users through every key feature — inbox, tasks, calendar, and contacts — in under a minute.",
   },
   {
     icon: (
@@ -67,7 +78,7 @@ const features = [
     ),
     title: "Task Management",
     description:
-      "Create tasks from emails, assign to colleagues, set reminders, attach files, and track progress on a kanban board — all without leaving the app.",
+      "Create tasks from emails, set due dates, recurring schedules, and email reminders. Attach files, add subtasks, assign to colleagues, and track progress on a kanban board or the My Day view.",
   },
 ];
 

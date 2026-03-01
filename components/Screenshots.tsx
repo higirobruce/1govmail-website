@@ -11,6 +11,7 @@ const tabs = [
     description: "Pinned messages, unread badges, and a clean three-panel layout for maximum focus.",
     src: "/screenshots/inbox.png",
     alt: "1Gov Mail inbox",
+    available: true,
   },
   {
     id: "reading",
@@ -18,6 +19,7 @@ const tabs = [
     description: "Full message view with attachment previews, overview metadata, and one-click reply.",
     src: "/screenshots/reading.png",
     alt: "1Gov Mail email reading view",
+    available: true,
   },
   {
     id: "compose",
@@ -25,18 +27,38 @@ const tabs = [
     description: "Rich text formatting, Cc/Bcc, file attachments, and ⌘↵ to send.",
     src: "/screenshots/compose.png",
     alt: "1Gov Mail compose window",
+    available: true,
   },
   {
     id: "calendar",
     label: "Calendar",
-    description: "Month, week, and day views with real-time availability checking for your colleagues.",
+    description: "Month, week, day, and agenda views. Overlay colleague schedules and accept or decline invites directly in the app.",
     src: "/screenshots/calendar.png",
     alt: "1Gov Mail calendar view",
+    available: false,
+  },
+  {
+    id: "freebusy",
+    label: "Free-Busy",
+    description: "Overlay up to 5 colleagues' schedules on a shared timeline. Shaded bands show working hours, and highlighted slots show when everyone is free.",
+    src: "/screenshots/freebusy.png",
+    alt: "1Gov Mail free-busy availability panel",
+    available: false,
+  },
+  {
+    id: "tasks",
+    label: "Tasks",
+    description: "Create tasks from emails, set due dates, reminders, and subtasks. Track work on a kanban board or switch to the My Day view for today's focus list.",
+    src: "/screenshots/tasks.png",
+    alt: "1Gov Mail task management",
+    available: false,
   },
 ];
 
 export function Screenshots() {
   const [active, setActive] = useState(0);
+
+  const current = tabs[active];
 
   return (
     <section className="relative bg-white pb-28 px-6">
@@ -57,7 +79,7 @@ export function Screenshots() {
         </div>
 
         {/* Tab bar */}
-        <div className="flex items-center justify-center gap-1 mb-10">
+        <div className="flex flex-wrap items-center justify-center gap-1 mb-10">
           {tabs.map((tab, i) => (
             <button
               key={tab.id}
@@ -76,28 +98,40 @@ export function Screenshots() {
 
         {/* Description */}
         <p className="text-center text-sm text-black/50 mb-8 max-w-lg mx-auto">
-          {tabs[active].description}
+          {current.description}
         </p>
 
-        {/* Screenshot */}
+        {/* Screenshot / placeholder */}
         <div className="relative rounded-2xl overflow-hidden border border-black/[0.08] shadow-2xl shadow-black/10">
-          {tabs.map((tab, i) => (
-            <div
-              key={tab.id}
-              className={clsx(
-                "transition-opacity duration-300",
-                active === i ? "opacity-100" : "opacity-0 absolute inset-0"
-              )}
-            >
-              <Image
-                src={tab.src}
-                alt={tab.alt}
-                width={1440}
-                height={900}
-                className="w-full h-auto block"
-              />
+          {current.available ? (
+            tabs.map((tab, i) => (
+              <div
+                key={tab.id}
+                className={clsx(
+                  "transition-opacity duration-300",
+                  active === i ? "opacity-100" : "opacity-0 absolute inset-0"
+                )}
+              >
+                <Image
+                  src={tab.src}
+                  alt={tab.alt}
+                  width={1440}
+                  height={900}
+                  className="w-full h-auto block"
+                />
+              </div>
+            ))
+          ) : (
+            <div className="flex flex-col items-center justify-center bg-[#f9f9f9] aspect-[16/9] gap-4">
+              <div className="w-12 h-12 rounded-2xl bg-black/[0.06] flex items-center justify-center">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" className="text-black/25">
+                  <rect x="3" y="3" width="18" height="18" rx="2" />
+                  <path d="M3 9h18M9 21V9" />
+                </svg>
+              </div>
+              <p className="text-sm text-black/30 font-medium">Screenshot coming soon</p>
             </div>
-          ))}
+          )}
         </div>
       </div>
     </section>

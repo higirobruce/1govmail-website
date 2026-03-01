@@ -21,6 +21,36 @@ interface ReleaseEntry {
 
 const STATIC_RELEASES: ReleaseEntry[] = [
   {
+    version: "1.3.0",
+    date: "March 2026",
+    changes: [
+      {
+        type: "new",
+        label: "New",
+        items: [
+          "Interactive onboarding tour — a step-by-step guided walkthrough launched from the sidebar introduces new users to inbox, tasks, calendar, and contacts in under a minute",
+          ],
+      },
+      {
+        type: "improvement",
+        label: "Improvements",
+        items: [
+          "Confirmation modals replace browser alert dialogs for all destructive actions — deleting tasks, calendar events, contacts, email folders, and signatures now shows a consistent in-app modal with Cancel and confirm buttons",
+          "Calendar opens to Agenda view by default for an immediate overview of upcoming events",
+          "Task edit sheet now correctly pre-fills all fields (title, description, status, priority, due date, recurrence, reminder, assignee) when reopening a saved task",
+          "Free-Busy and Tasks tabs added to the 'See it in action' section on the homepage",
+        ],
+      },
+      {
+        type: "fix",
+        label: "Bug Fixes",
+        items: [
+          "Calendar RSVP (Accept / Decline / Tentative) no longer triggers a Zimbra server NullPointerException",
+        ],
+      },
+    ],
+  },
+  {
     version: "1.2.0",
     date: "February 2026",
     changes: [

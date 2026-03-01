@@ -2,6 +2,26 @@
 
 All notable changes to this project will be documented in this file.
 
+## [App v1.3.0] - 2026-03-01
+
+### New Features (1Gov Mail app)
+
+- **Interactive onboarding tour** — step-by-step guided walkthrough launched from the sidebar; covers inbox, tasks, calendar, and contacts in under a minute
+- **Screenshots section** — homepage now includes Calendar, Free-Busy, and Tasks preview tabs in "See it in action"
+
+### Improvements
+
+- Confirmation modals replace browser alert dialogs for all destructive actions (delete task, event, contact, folder, signature)
+- Calendar now opens to Agenda view by default
+- Task edit sheet pre-fills all fields correctly when reopening a saved task
+- Features and descriptions on homepage updated to reflect full v1.3.0 capabilities
+
+### Bug Fixes
+
+- Calendar RSVP (Accept / Decline / Tentative) no longer triggers a Zimbra server NullPointerException
+
+---
+
 ## [App v1.2.0] - 2026-02-28
 
 ### New Features (1Gov Mail app)
@@ -12,6 +32,11 @@ All notable changes to this project will be documented in this file.
 - **My Day tab** — new "My Day" tab in Tasks shows everything due today with a live count badge
 - **Bulk actions** — select multiple tasks with checkboxes and use the floating action bar to mark done or delete in one go
 - **Task sheet** — creating and editing tasks now opens in a slide-in panel for better use of screen space
+- **Multi-attendee availability panel** — overlay up to 5 colleagues' free/busy schedules on a shared timeline
+- **Batch free/busy lookup** — fetches all attendees' schedules in a single request for instant results
+- **Find-a-time** — highlights open slots where all selected attendees are free, with suggested meeting times
+- **Working hours overlay** — shaded bands show each person's configured business hours on the timeline
+- **Per-user color coding** — distinct colors on the availability timeline for quick visual parsing
 
 ## [App v1.1.0] - 2026-02-27
 
@@ -25,11 +50,6 @@ All notable changes to this project will be documented in this file.
 - **Link tasks to emails** — attach an email subject to a task for full context
 - **Create tasks from email** — open a task sheet directly from a thread with the subject pre-filled
 - **Assign tasks** — assign to a colleague with an automatic notification email sent via Zimbra
-- **Multi-attendee availability panel** — overlay up to 5 colleagues' free/busy schedules on a shared timeline
-- **Batch free/busy lookup** — fetches all attendees' schedules in a single request for instant results
-- **Find-a-time** — highlights open slots where all selected attendees are free
-- **Working hours overlay** — shaded bands show each person's configured business hours on the timeline
-- **Per-user color coding** — distinct colors on the availability timeline for quick visual parsing
 - **Image support in signatures** — embed inline images that render correctly in all mail clients
 - **Image attachments** — file attachments now support images with correct inline rendering
 
