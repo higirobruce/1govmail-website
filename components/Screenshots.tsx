@@ -35,7 +35,7 @@ const tabs = [
     description: "Month, week, day, and agenda views. Overlay colleague schedules and accept or decline invites directly in the app.",
     src: "/screenshots/calendar.png",
     alt: "1Gov Mail calendar view",
-    available: false,
+    available: true,
   },
   {
     id: "freebusy",
@@ -43,7 +43,7 @@ const tabs = [
     description: "Overlay up to 5 colleagues' schedules on a shared timeline. Shaded bands show working hours, and highlighted slots show when everyone is free.",
     src: "/screenshots/freebusy.png",
     alt: "1Gov Mail free-busy availability panel",
-    available: false,
+    available: true,
   },
   {
     id: "tasks",
@@ -51,7 +51,7 @@ const tabs = [
     description: "Create tasks from emails, set due dates, reminders, and subtasks. Track work on a kanban board or switch to the My Day view for today's focus list.",
     src: "/screenshots/tasks.png",
     alt: "1Gov Mail task management",
-    available: false,
+    available: true,
   },
 ];
 

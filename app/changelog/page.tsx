@@ -29,7 +29,7 @@ const STATIC_RELEASES: ReleaseEntry[] = [
         label: "New",
         items: [
           "Interactive onboarding tour — a step-by-step guided walkthrough launched from the sidebar introduces new users to inbox, tasks, calendar, and contacts in under a minute",
-          ],
+        ],
       },
       {
         type: "improvement",
