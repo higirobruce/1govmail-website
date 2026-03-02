@@ -21,6 +21,42 @@ interface ReleaseEntry {
 
 const STATIC_RELEASES: ReleaseEntry[] = [
   {
+    version: "1.5.0",
+    date: "March 2026",
+    changes: [
+      {
+        type: "new",
+        label: "New",
+        items: [
+          "Documents — a full-featured document editor inside the app: create, edit, and delete rich-text documents with formatting, checklists, tables, and code blocks",
+          "Real-time collaboration — multiple users can edit a document simultaneously; changes merge instantly with no conflicts and each collaborator's cursor appears in a distinct colour",
+          "Document sharing — share any document as a read-only link; recipients can open it directly without an account",
+          "Contact groups — organise contacts into named groups for easier addressing and management",
+          "Drag email to task or event — drag any message from the inbox to create a pre-filled task or calendar event in one gesture",
+          "Theme switcher — choose Light, Dark, or System (follows your OS setting) from Settings",
+          "Desktop notifications — native OS notifications for new mail and task reminders",
+          "Keyboard shortcuts — compose (C), reply (R), archive (E), delete (#), and folder navigation",
+        ],
+      },
+      {
+        type: "improvement",
+        label: "Improvements",
+        items: [
+          "Task board columns have refreshed backgrounds and card styling for better readability",
+          "Consistent DateTimePicker across all scheduling inputs — snooze, scheduled send, and task due dates now use the same unified component",
+          "Calendar layout improved; sidebar folder list loads reliably on slow connections",
+        ],
+      },
+      {
+        type: "fix",
+        label: "Bug Fixes",
+        items: [
+          "Document share dialog: URL field is now a proper text input, making it easy to select and copy the share link",
+        ],
+      },
+    ],
+  },
+  {
     version: "1.4.0",
     date: "March 2026",
     changes: [

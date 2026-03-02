@@ -56,17 +56,17 @@ const features = [
     description:
       "Your full Zimbra address book, synced and searchable. Auto-suggest contacts when composing or assigning tasks. Organise emails with custom labels.",
   },
-  {
-    icon: (
-      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
-        <circle cx="10" cy="10" r="8" />
-        <path d="M10 6v4l3 3" />
-      </svg>
-    ),
-    title: "Guided Onboarding",
-    description:
-      "A built-in interactive tour walks new users through every key feature — inbox, tasks, calendar, and contacts — in under a minute.",
-  },
+  // {
+  //   icon: (
+  //     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+  //       <circle cx="10" cy="10" r="8" />
+  //       <path d="M10 6v4l3 3" />
+  //     </svg>
+  //   ),
+  //   title: "Guided Onboarding",
+  //   description:
+  //     "A built-in interactive tour walks new users through every key feature — inbox, tasks, calendar, and contacts — in under a minute.",
+  // },
   {
     icon: (
       <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
@@ -230,12 +230,12 @@ export function Features() {
           ))}
         </div>
 
-        {/* ── New in v1.4.0 ──────────────────────────────────────────── */}
+        {/* ── New in v1.5.0 ──────────────────────────────────────────── */}
         <div className="mt-24">
           <div className="text-center mb-12">
             <span className="inline-flex items-center gap-1.5 border border-black/[0.10] rounded-full px-3.5 py-1 text-xs font-semibold text-black/50 bg-black/[0.03] mb-4">
               <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse inline-block" />
-              New in v1.4.0
+              New in v1.5.0
             </span>
             <h2 className="text-2xl md:text-3xl font-semibold tracking-tight text-[#0a0a0a]">
               Nine new ways to work smarter

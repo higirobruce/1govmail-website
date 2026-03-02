@@ -2,6 +2,32 @@
 
 All notable changes to this project will be documented in this file.
 
+## [App v1.5.0] - 2026-03-02
+
+### New Features (1Gov Mail app)
+
+- **Documents** — a full-featured document editor inside the app: create, edit, and delete rich-text documents with formatting, checklists, tables, and code blocks
+- **Real-time collaboration** — multiple users can edit a document simultaneously; changes merge instantly with no conflicts and each collaborator's cursor appears in a distinct colour
+- **Document sharing** — share any document as a read-only link; recipients can open it directly without an account
+- **Live title sync** — document title changes appear immediately for all collaborators without a page refresh
+- **Contact groups** — organise contacts into named groups for easier addressing and management
+- **Drag email to task or event** — drag any message from the inbox onto the Tasks or Calendar panel to create a pre-filled task or event in one gesture
+- **Theme switcher** — choose Light, Dark, or System (follows your OS) from Settings
+- **Desktop notifications** — native OS notifications for new mail and task reminders
+- **Keyboard shortcuts** — compose (C), reply (R), archive (E), delete (#), and folder navigation
+
+### Improvements
+
+- Task board columns have refreshed backgrounds and card styling for better readability
+- Consistent DateTimePicker across all scheduling inputs (snooze, scheduled send, task due dates)
+- Calendar layout improved; sidebar folders load reliably on slow connections
+
+### Bug Fixes
+
+- Document share dialog: URL field is now a proper text input, making it easy to select and copy the link
+
+---
+
 ## [App v1.3.0] - 2026-03-01
 
 ### New Features (1Gov Mail app)
