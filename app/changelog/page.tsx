@@ -21,6 +21,27 @@ interface ReleaseEntry {
 
 const STATIC_RELEASES: ReleaseEntry[] = [
   {
+    version: "1.4.0",
+    date: "March 2026",
+    changes: [
+      {
+        type: "new",
+        label: "New",
+        items: [
+          "Snooze — hide any email and have it resurface at a chosen time (later today, tonight, tomorrow morning, next week, or a custom date and time)",
+          "Undo Send — a 5-second cancellation window after clicking Send; a toast action lets you pull the message back before it is dispatched",
+          "Scheduled Send — compose a message and pick any future date and time for delivery; the backend processes due messages every minute",
+          "Email Templates — save reusable canned responses and insert them into any compose window from the toolbar dropdown in a single click",
+          "Mail Rules — build if/then filters to automatically move, label, or forward incoming messages based on sender, subject, or body conditions",
+          "Mute Conversations — silence threads you no longer need to follow; muted state is visible in the message list and toggled from the thread header",
+          "Print View — opens a formatted, printer-friendly window for any email thread with no application chrome",
+          "Bulk Actions — checkbox-select multiple messages and mark them all read, move them, or delete them using the floating action bar",
+          "Inline Spell Check — native browser spell check is active in the TipTap compose editor, flagging typos in real time",
+        ],
+      },
+    ],
+  },
+  {
     version: "1.3.0",
     date: "March 2026",
     changes: [

@@ -82,6 +82,115 @@ const features = [
   },
 ];
 
+const newFeatures = [
+  {
+    icon: (
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+        <circle cx="10" cy="10" r="7" />
+        <path d="M10 6v4l2.5 2.5" />
+        <path d="M7 2.5L10 1l3 1.5" />
+      </svg>
+    ),
+    title: "Snooze",
+    description:
+      "Hide any email and have it resurface at the perfect moment — later today, tonight, tomorrow morning, next week, or any custom date and time.",
+  },
+  {
+    icon: (
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M3 7V3h4" />
+        <path d="M3 3l5 5" />
+        <path d="M3 7a9 9 0 1 0 9-6" />
+      </svg>
+    ),
+    title: "Undo Send",
+    description:
+      "A 5-second safety net after every send. Changed your mind? Hit Undo and the message is cancelled before it ever leaves your outbox.",
+  },
+  {
+    icon: (
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+        <rect x="2" y="3" width="16" height="15" rx="2" />
+        <path d="M7 2v2M13 2v2M2 8h16" />
+        <circle cx="14" cy="14" r="3" />
+        <path d="M14 12.5v1.5l1 1" />
+      </svg>
+    ),
+    title: "Scheduled Send",
+    description:
+      "Compose now, deliver later. Queue a message to go out at any future date and time — even while you're offline.",
+  },
+  {
+    icon: (
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+        <rect x="4" y="2" width="12" height="16" rx="2" />
+        <path d="M7 7h6M7 10h6M7 13h4" />
+      </svg>
+    ),
+    title: "Email Templates",
+    description:
+      "Save your most-used replies as reusable templates and insert them into any compose window from the toolbar in a single click.",
+  },
+  {
+    icon: (
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M3 5h14M5 10h10M7 15h6" />
+      </svg>
+    ),
+    title: "Mail Rules",
+    description:
+      "Build powerful if/then filters that automatically move, label, or forward incoming messages — keeping your inbox organised without manual effort.",
+  },
+  {
+    icon: (
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M10 3a5 5 0 0 1 5 5c0 2-.5 3.5-1.5 5H6.5C5.5 11.5 5 10 5 8a5 5 0 0 1 5-5z" />
+        <path d="M7.5 13v1a2.5 2.5 0 0 0 5 0v-1" />
+        <line x1="3" y1="3" x2="17" y2="17" />
+      </svg>
+    ),
+    title: "Mute Conversations",
+    description:
+      "Silence busy threads you no longer need to follow. Muted conversations stay archived and out of your way — unmute any time.",
+  },
+  {
+    icon: (
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+        <rect x="2" y="3" width="16" height="13" rx="1.5" />
+        <path d="M6 18h8M10 16v2" />
+      </svg>
+    ),
+    title: "Print View",
+    description:
+      "Generate a clean, formatted print-ready version of any email thread — no application chrome, just the content exactly as it should appear on paper.",
+  },
+  {
+    icon: (
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+        <rect x="2" y="4" width="5" height="5" rx="1" />
+        <rect x="2" y="11" width="5" height="5" rx="1" />
+        <path d="M4.5 6.5l1 1 2-2" />
+        <path d="M9.5 7h8.5M9.5 14h8.5" />
+      </svg>
+    ),
+    title: "Bulk Actions",
+    description:
+      "Select multiple messages with a checkbox and mark them all read, move them, or delete them in a single action using the floating action bar.",
+  },
+  {
+    icon: (
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M4 6h12M4 10h8" />
+        <path d="M13 14l2 2 4-4" />
+        <path d="M7 14H4" />
+      </svg>
+    ),
+    title: "Spell Check",
+    description:
+      "Native browser spell check is active inside the compose editor, flagging typos as you type so every message goes out polished.",
+  },
+];
+
 export function Features() {
   return (
     <section
@@ -119,6 +228,38 @@ export function Features() {
               </p>
             </div>
           ))}
+        </div>
+
+        {/* ── New in v1.4.0 ──────────────────────────────────────────── */}
+        <div className="mt-24">
+          <div className="text-center mb-12">
+            <span className="inline-flex items-center gap-1.5 border border-black/[0.10] rounded-full px-3.5 py-1 text-xs font-semibold text-black/50 bg-black/[0.03] mb-4">
+              <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse inline-block" />
+              New in v1.4.0
+            </span>
+            <h2 className="text-2xl md:text-3xl font-semibold tracking-tight text-[#0a0a0a]">
+              Nine new ways to work smarter
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-black/[0.06] rounded-2xl overflow-hidden border border-black/[0.06]">
+            {newFeatures.map((f, i) => (
+              <div
+                key={i}
+                className="bg-white p-8 hover:bg-[#fafafa] transition-colors group"
+              >
+                <div className="w-10 h-10 rounded-xl bg-[#f4f4f5] flex items-center justify-center text-[#111] mb-5 group-hover:bg-[#ebebeb] transition-colors">
+                  {f.icon}
+                </div>
+                <h3 className="text-[15px] font-semibold text-[#0a0a0a] mb-2">
+                  {f.title}
+                </h3>
+                <p className="text-sm text-black/50 leading-relaxed">
+                  {f.description}
+                </p>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
